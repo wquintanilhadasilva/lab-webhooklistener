@@ -7,6 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - TIMEOUT=60000 # 5 minutos
+      - TIMEOUT=300000 # 5 minutos
     ports:
      - 3000:3000

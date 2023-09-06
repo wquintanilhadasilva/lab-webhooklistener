@@ -5,6 +5,28 @@ Disponibiliza um endpoint para checar se houve a chamada do POST
 
 Aguarda por um período padrão de 5 minutos (pode ser alterado através da variável de ambiente TIMEOUT) para limpar os dados enviados.
 
+# Publicar imagem
+
+Gerar a imagem
+
+```
+docker build -t wquintanilhadasilva/webhook-listener:latest .
+```
+
+Publicar a imagem:
+
+> Faça login primeiro
+
+```
+docker push wquintanilhadasilva/webhook-listener
+```
+
+Obter a imagem:
+
+```
+docker pull wquintanilhadasilva/webhook-listener:latest
+```
+
 # Como usar
 
 Utilize o docker compose como exemplo. Configure o timeout desejado através da variável de ambiente 'TIMEOUT'.
@@ -15,8 +37,8 @@ Caso não informe, assume o timeout default de 60 segundos.
 Execute o comando docker:
 
 ```
-docker run -d --rm --name webhook-app \
-    -e TIMEOUT=30000 \
+docker run -d --rm --name webhook-listener \
+    -e TIMEOUT=300000 \
     -p 3000:3000 \
-    wquintanilhadasilva/webhook-app
+    wquintanilhadasilva/webhook-listener
 ```
