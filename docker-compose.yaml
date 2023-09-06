@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app:
+    container_name: webhook-app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TIMEOUT=60000 # 5 minutos
+    ports:
+     - 3000:3000
